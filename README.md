@@ -2,6 +2,14 @@
 
 An [unfold](https://en.wikipedia.org/wiki/Anamorphism) helper.
 
+[![travis][travis-image]][travis-url]
+[![npm][npm-image]][npm-url]
+
+[travis-image]: https://travis-ci.org/maxnachlinger/unfold-with.svg?branch=master
+[travis-url]: https://travis-ci.org/maxnachlinger/unfold-with
+[npm-image]: https://img.shields.io/npm/v/unfold-with.svg?style=flat
+[npm-url]: https://npmjs.org/package/unfold-with
+
 Install:
 ```shell
 npm i unfold-with
