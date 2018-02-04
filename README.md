@@ -1,7 +1,12 @@
 ## unfold-with
 
-An [unfold](https://en.wikipedia.org/wiki/Anamorphism) helper. Some examples might help :)
+An [unfold](https://en.wikipedia.org/wiki/Anamorphism) helper.
 
+Install:
+```shell
+npm i unfold-with
+```
+Some examples might help :)
 ```javascript
 const unfold = require('unfold-with')
 
