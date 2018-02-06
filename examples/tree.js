@@ -30,7 +30,7 @@ const depthFirst = (input) => unfold((forest) => forest.length > 0 ? {
 const breadthFirst = (input) => unfold((forest) => forest.length > 0 ? {
   result: forest[0].label,
   next: forest.slice(1).concat(forest[0].children)
-} : null, input);
+} : null, input)
 
 console.log(
   depthFirst([tree]),
