@@ -7,8 +7,19 @@
     "pretest": "./node_modules/.bin/standard --verbose | ./node_modules/.bin/snazzy",
     "test": "ava"
   },
-  "keywords": [],
-  "author": "",
+  "homepage": "https://github.com/maxnachlinger/unfold-with",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxnachlinger/unfold-with.git"
+  },
+  "keywords": [
+    "unfold",
+    "anamorphism"
+  ],
+  "bugs": {
+    "url": "https://github.com/maxnachlinger/unfold-with/issues"
+  },
+  "author": "Max Nachlinger",
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.25.0",
