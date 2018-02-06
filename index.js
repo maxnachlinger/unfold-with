@@ -13,7 +13,7 @@ module.exports = (fn, initialValue) => {
       return accum
     }
 
-    accum.push(result.result)
-    stack.push(result.next)
+    accum.push(result.value)
+    stack.push(result.nextValue)
   }
 }

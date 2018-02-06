@@ -15,7 +15,9 @@ Install:
 npm i unfold-with
 ```
 ### API
-`unfoldWidth((x) => {result, next} || null || undefined), initial-value)`
+`unfoldWidth((x) => {value, nextValue} || null, initial-value || null)`
+- `(x) => {value, nextValue}`. Required. A function which takes a value and returns either an object of the form `{value, nextValue}` or `null || undefined`.
+- `initial-value`. Optional. If present, the first call to the function above will be invoked with this value.
 
 ### Examples
 A simple range:
@@ -23,11 +25,11 @@ A simple range:
 const unfold = require('unfold-with')
 
 const rangePositive = (start, end) => 
-  unfold((x) => x <= end ? {result: x, next: x + 1} : null, start)
+  unfold((x) => x <= end ? {value: x, nextValue: x + 1} : null, start)
 console.log(rangePositive(-2, 2)) // [ -2, -1, 0, 1, 2 ]
 
 const downToZero = (start) => 
-  unfold((x) => x >= 0 ? {result: x, next: x - 1} : null, start)
+  unfold((x) => x >= 0 ? {value: x, nextValue: x - 1} : null, start)
 console.log(downToZero(2)) // [ 2, 1, 0 ]
 ```
 Or a tree:
@@ -57,13 +59,13 @@ const tree = {
 }
 
 const depthFirst = (input) => unfold((forest) => forest.length > 0 ? {
-  result: forest[0].label,
-  next: forest[0].children.concat(forest.slice(1))
+  value: forest[0].label,
+  nextValue: forest[0].children.concat(forest.slice(1))
 } : null, input)
 
 const breadthFirst = (input) => unfold((forest) => forest.length > 0 ? {
-  result: forest[0].label,
-  next: forest.slice(1).concat(forest[0].children)
+  value: forest[0].label,
+  nextValue: forest.slice(1).concat(forest[0].children)
 } : null, input)
 
 console.log(

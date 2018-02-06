@@ -23,13 +23,13 @@ const tree = {
 }
 
 const depthFirst = (input) => unfold((forest) => forest.length > 0 ? {
-  result: forest[0].label,
-  next: forest[0].children.concat(forest.slice(1))
+  value: forest[0].label,
+  nextValue: forest[0].children.concat(forest.slice(1))
 } : null, input)
 
 const breadthFirst = (input) => unfold((forest) => forest.length > 0 ? {
-  result: forest[0].label,
-  next: forest.slice(1).concat(forest[0].children)
+  value: forest[0].label,
+  nextValue: forest.slice(1).concat(forest[0].children)
 } : null, input)
 
 console.log(
