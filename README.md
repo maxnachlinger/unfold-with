@@ -67,7 +67,7 @@ const breadthFirst = (input) => unfold((forest) => forest.length > 0 ? {
 } : null, input)
 
 console.log(
-  depthFirst([tree]),
-  breadthFirst([tree])
+  depthFirst([tree]),  // [ 1, 2, 4, 5, 3, 6 ]
+  breadthFirst([tree]) // [ 1, 2, 3, 4, 5, 6 ]
 )
 ```
