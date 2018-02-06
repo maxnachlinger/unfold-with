@@ -2,27 +2,27 @@ const {test} = require('ava')
 const unfold = require('../')
 
 test('handles missing initial value', (t) => {
-  const result = unfold((x) => x ? {result: x, next: x - 1} : null)
-  t.deepEqual(result, [])
+  const value = unfold((x) => x ? {value: x, nextValue: x - 1} : null)
+  t.deepEqual(value, [])
 })
 
-test('handles missing next value', (t) => {
-  const result = unfold((x) => x ? {result: x} : null, 0)
-  t.deepEqual(result, [])
+test('handles missing nextValue value', (t) => {
+  const value = unfold((x) => x ? {value: x} : null, 0)
+  t.deepEqual(value, [])
 })
 
-test('handles missing next and result values', (t) => {
-  const result = unfold((x) => x ? {} : null, 0)
-  t.deepEqual(result, [])
+test('handles missing nextValue and value values', (t) => {
+  const value = unfold((x) => x ? {} : null, 0)
+  t.deepEqual(value, [])
 })
 
 test('handles missing fn', (t) => {
-  const result = unfold()
-  t.deepEqual(result, [])
+  const value = unfold()
+  t.deepEqual(value, [])
 })
 
 test('unfolds an integer down to zero', (t) => {
-  const downToZero = (start) => unfold((x) => x >= 0 ? {result: x, next: x - 1} : null, start)
-  const result = downToZero(5)
-  t.deepEqual(result, [5, 4, 3, 2, 1, 0])
+  const downToZero = (start) => unfold((x) => x >= 0 ? {value: x, nextValue: x - 1} : null, start)
+  const value = downToZero(5)
+  t.deepEqual(value, [5, 4, 3, 2, 1, 0])
 })
