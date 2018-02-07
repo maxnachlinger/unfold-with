@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = (fn, initialValue) => {
   if (!fn || typeof (fn) !== 'function') {
     return []
@@ -7,13 +9,13 @@ module.exports = (fn, initialValue) => {
   const stack = [initialValue]
 
   while (true) {
-    const result = fn(stack.pop()) || {done: true}
+    const [value, nextValue] = fn(stack.pop()) || []
 
-    if (result.done) {
+    if (!value && !nextValue) {
       return accum
     }
 
-    accum.push(result.value)
-    stack.push(result.nextValue)
+    accum.push(value)
+    stack.push(nextValue)
   }
 }

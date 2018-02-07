@@ -22,17 +22,17 @@ const tree = {
   }]
 }
 
-const depthFirst = (input) => unfold((forest) => forest.length > 0 ? {
-  value: forest[0].label,
-  nextValue: forest[0].children.concat(forest.slice(1))
-} : null, input)
+const depthFirst = (input) => unfold((forest) => forest.length > 0 ? [
+  forest[0].label,
+  forest[0].children.concat(forest.slice(1))
+] : null, input)
 
-const breadthFirst = (input) => unfold((forest) => forest.length > 0 ? {
-  value: forest[0].label,
-  nextValue: forest.slice(1).concat(forest[0].children)
-} : null, input)
+const breadthFirst = (input) => unfold((forest) => forest.length > 0 ? [
+  forest[0].label,
+  forest.slice(1).concat(forest[0].children)
+] : null, input)
 
 console.log(
-  depthFirst([tree]),
-  breadthFirst([tree])
+  depthFirst([tree]),  // [ 1, 2, 4, 5, 3, 6 ]
+  breadthFirst([tree]) // [ 1, 2, 3, 4, 5, 6 ]
 )
