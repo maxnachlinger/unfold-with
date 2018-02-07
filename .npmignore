@@ -1,2 +1,4 @@
 examples
 test
+.idea
+.travis.yml
