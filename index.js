@@ -1,17 +1,19 @@
 'use strict'
 
 module.exports = (fn, initialValue) => {
+  const accum = []
+
   if (!fn || typeof (fn) !== 'function') {
-    return []
+    return accum
   }
 
-  const accum = []
   const stack = [initialValue]
+  const complete = Symbol('complete')
 
   while (true) {
-    const [value, nextValue] = fn(stack.pop()) || []
+    const [value, nextValue] = fn(stack.pop()) || [complete]
 
-    if (!value && !nextValue) {
+    if (value === complete) {
       return accum
     }
 
