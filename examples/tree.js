@@ -1,7 +1,6 @@
 const unfold = require('../')
 
-// taken from http://raganwald.com/2016/11/30/anamorphisms-in-javascript.html
-// what a great article! :)
+// example taken from http://raganwald.com/2016/11/30/anamorphisms-in-javascript.html
 const tree = {
   label: 1,
   children: [{
@@ -24,12 +23,12 @@ const tree = {
 
 const depthFirst = (input) => unfold((forest) => forest.length > 0 ? [
   forest[0].label,
-  forest[0].children.concat(forest.slice(1))
+  [...forest[0].children, ...forest.slice(1)]
 ] : null, input)
 
 const breadthFirst = (input) => unfold((forest) => forest.length > 0 ? [
   forest[0].label,
-  forest.slice(1).concat(forest[0].children)
+  [...forest.slice(1), ...forest[0].children]
 ] : null, input)
 
 console.log(

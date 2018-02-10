@@ -1,6 +1,6 @@
 ## unfold-with
 
-An [unfold](https://en.wikipedia.org/wiki/Anamorphism) helper.
+An [unfold](https://en.wikipedia.org/wiki/Anamorphism) helper, inspired by [this awesome article](http://raganwald.com/2016/11/30/anamorphisms-in-javascript.html).
 
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
@@ -26,16 +26,12 @@ const unfold = require('unfold-with')
 
 const rangePositive = (start, end) => unfold((x) => x <= end ? [x, x + 1] : null, start)
 console.log(rangePositive(-2, 2)) // [ -2, -1, 0, 1, 2 ]
-
-const downToZero = (start) => unfold((x) => x >= 0 ? [x, x - 1] : null, start)
-console.log(downToZero(2)) // [ 2, 1, 0 ]
 ```
 Or a tree:
 ```javascript
 const unfold = require('unfold-with')
 
-// taken from http://raganwald.com/2016/11/30/anamorphisms-in-javascript.html
-// what a great article! :)
+// example taken from http://raganwald.com/2016/11/30/anamorphisms-in-javascript.html
 const tree = {
   label: 1,
   children: [{
@@ -71,3 +67,4 @@ console.log(
   breadthFirst([tree]) // [ 1, 2, 3, 4, 5, 6 ]
 )
 ```
+[A few more examples are here.](./examples)
