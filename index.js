@@ -1,23 +1,23 @@
-'use strict'
+"use strict";
 
 module.exports = (fn, initialValue) => {
-  const accum = []
+  const accum = [];
 
-  if (!fn || typeof (fn) !== 'function') {
-    return accum
+  if (!fn || typeof fn !== "function") {
+    return accum;
   }
 
-  const stack = [initialValue]
-  const complete = Symbol('complete')
+  const stack = [initialValue];
+  const complete = Symbol("complete");
 
   while (true) {
-    const [value, nextValue] = fn(stack.pop()) || [complete]
+    const [value, nextValue] = fn(stack.pop()) || [complete];
 
     if (value === complete) {
-      return accum
+      return accum;
     }
 
-    accum.push(value)
-    stack.push(nextValue)
+    accum.push(value);
+    stack.push(nextValue);
   }
-}
+};
